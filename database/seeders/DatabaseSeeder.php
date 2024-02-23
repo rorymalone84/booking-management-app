@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Role;
+use App\Models\Service;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
@@ -18,6 +19,8 @@ class DatabaseSeeder extends Seeder
 
         // seed user roles
         $this->call(RoleSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(ServiceSeeder::class);
 
         //customer user seeder
         \App\Models\User::factory(10)->create()->each(function ($user) {
