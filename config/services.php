@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'postcodes' => [
+        'url' => env('POSTCODES_URL', 'https://api.postcodes.io/')
+    ],
+
 ];
