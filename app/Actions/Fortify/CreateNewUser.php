@@ -39,6 +39,6 @@ class CreateNewUser implements CreatesNewUsers
             'postcode' => $input['postcode'],
             'phone' => $input['phone'],
             'password' => Hash::make($input['password']),
-        ]);
+        ])->assignRole('customer');
     }
 }
