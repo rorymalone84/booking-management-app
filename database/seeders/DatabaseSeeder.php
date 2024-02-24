@@ -4,10 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Role;
+use App\Models\User;
 use App\Models\Service;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
+use Database\Seeders\ScheduleSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -73,5 +75,8 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
         ])->assignRole('admin');
+
+        $this->call(ScheduleSeeder::class);
+        $this->call(ScheduleTimeUnavailableSeeder::class);
     }
 }
