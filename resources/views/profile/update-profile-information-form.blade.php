@@ -117,9 +117,6 @@
                 autocomplete="phone" />
             <x-input-error for="phone" class="mt-2" />
         </div>
-
-
-
     </x-slot>
 
     <x-slot name="actions">
