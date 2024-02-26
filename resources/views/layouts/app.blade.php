@@ -46,13 +46,20 @@
 
             {{-- MENU --}}
             <x-mary-menu activate-by-route>
-
                 {{-- User --}}
                 @if ($user = auth()->user())
                     <x-mary-list-item :item="$user" sub-value="username" no-separator no-hover
                         class="!-mx-2 mt-2 mb-5 border-y border-y-sky-900">
                         <x-slot:actions>
-                            <x-mary-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff" />
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-mary-button label="Log-off" icon="o-power" class="btn-ghost btn-sm" :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-mary-button>
+                            </form>
                         </x-slot:actions>
                     </x-mary-list-item>
                 @endif

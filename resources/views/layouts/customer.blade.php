@@ -32,9 +32,29 @@
             <x-mary-button label="Home" icon="o-home" link="/" class="btn-ghost btn-sm" />
             <x-mary-button label="About" icon="o-shield-exclamation" link="/" class="btn-ghost btn-sm" />
             <x-mary-button label="Services" icon="o-scissors" link="###" class="btn-ghost btn-sm" />
-            <x-mary-button label="Login" icon="o-user" link="###" class="btn-ghost btn-sm" />
+            @if (Route::has('login'))
+                @auth
+                    <x-mary-button label="{{ Auth::user()->name }}" icon="o-user" class="btn-ghost btn-sm"
+                        onclick="loginModal.showModal()" />
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-mary-button label="Logout" icon="o-power" class="btn-ghost btn-sm" :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-mary-button>
+                    </form>
+                @else
+                    <x-mary-button label="Login" icon="o-user" class="btn-ghost btn-sm"
+                        onclick="loginModal.showModal()" />
+                @endauth
+            @endif
         </x-slot:actions>
     </x-mary-nav>
+
+    <x-login-modal />
 
     {{-- The main content with `full-width` --}}
     <x-mary-main with-nav full-width>
@@ -52,6 +72,11 @@
         </x-slot:footer>
     </x-mary-main>
     @livewireScripts
+    <script>
+        $(document).ready(function() {
+            $('#login-modal').modal('show');
+        });
+    </script>
 </body>
 
 </html>
