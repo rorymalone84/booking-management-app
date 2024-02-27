@@ -4,10 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function display_services()
+    {
+        $categories = Category::all();
+        $services = Service::all();
+        return view('customer.services.index', [
+            'services' => $services,
+            'categories' => $categories
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */
