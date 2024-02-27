@@ -23,6 +23,10 @@ class ServiceController extends Controller
         ]);
     }
 
+    public function display_service($id)
+    {
+        return view('customer.services.service', ['service' => Service::findOrFail($id)]);
+    }
     /**
      * Display a listing of the resource.
      */

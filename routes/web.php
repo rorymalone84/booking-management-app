@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/services', [ServiceController::class, 'display_services'])->name('customer.services');
+Route::get('/services/{id}', [ServiceController::class, 'display_service'])->name('customer.service');
 
 Route::middleware([
     'auth',
