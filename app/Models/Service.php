@@ -12,7 +12,10 @@ class Service extends Model
     protected $fillable = [
         'name',
         'duration',
-        'cost',
+        'duration',
+        'child_price',
+        'teen_price',
+        'adult_price',
         'category_id'
     ];
 

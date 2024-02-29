@@ -31,7 +31,7 @@
         <x-slot:actions>
             <x-mary-button label="Home" icon="o-home" link="/" class="btn-ghost btn-sm" />
             <x-mary-button label="About" icon="o-shield-exclamation" link="/" class="btn-ghost btn-sm" />
-            <x-mary-button label="Services" icon="o-scissors" link="###" class="btn-ghost btn-sm" />
+            <x-mary-button label="Services" icon="o-scissors" link="/services" wire:navigate class="btn-ghost btn-sm" />
             @if (Route::has('login'))
                 @auth
                     <x-mary-button label="{{ Auth::user()->name }}" icon="o-user" class="btn-ghost btn-sm"

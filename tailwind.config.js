@@ -21,8 +21,8 @@ export default {
     },
 
     plugins: [
-		forms,
 		typography,
 		require("daisyui")
 	],
+
 };

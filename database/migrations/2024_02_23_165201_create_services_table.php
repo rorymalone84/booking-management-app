@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('category_id');
             $table->integer('duration');
-            $table->integer('cost');
+            $table->text('description');
+            $table->integer('adult_price');
+            $table->integer('teen_price');
+            $table->integer('child_price');
             $table->timestamps();
             $table->foreign('category_id')
                 ->references('id')->on('categories')->onDelete('cascade');
