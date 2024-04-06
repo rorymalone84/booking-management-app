@@ -14,8 +14,13 @@ class Category extends Model
         'name',
     ];
 
-    public function service()
+    public function female_services()
     {
-        return $this->hasMany(Service::class, 'category_id');
+        return $this->hasMany(Service::class, 'category_id')->where('gender', '=', 'female');
+    }
+
+    public function male_services()
+    {
+        return $this->hasMany(Service::class, 'category_id')->where('gender', '=', 'male');
     }
 }

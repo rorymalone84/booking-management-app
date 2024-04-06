@@ -18,14 +18,17 @@ class ServiceController extends Controller
         $categories = Category::all();
         $services = Service::all();
         return view('customer.services.index', [
-            'services' => $services,
+            'female_services' => Service::all()->where('gender', '=', 'female'),
+            'male_services' => Service::all()->where('gender', '=', 'male'),
             'categories' => $categories
         ]);
     }
 
     public function display_service($id)
     {
-        return view('customer.services.service', ['service' => Service::findOrFail($id)]);
+        return view('customer.services.service', [
+            'service' => Service::findOrFail($id),
+        ]);
     }
     /**
      * Display a listing of the resource.
