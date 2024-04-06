@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Enums\GenderEnum;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->integer('adult_price');
             $table->integer('teen_price');
             $table->integer('child_price');
+            $table->string('gender')->default(GenderEnum::FEMALE->value);
             $table->timestamps();
             $table->foreign('category_id')
                 ->references('id')->on('categories')->onDelete('cascade');

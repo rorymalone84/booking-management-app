@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Enums\GenderEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
@@ -29,4 +30,8 @@ class Service extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    protected $casts = [
+        'gender' => GenderEnum::class,
+    ];
 }

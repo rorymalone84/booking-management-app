@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Service;
+use App\Enums\GenderEnum;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
@@ -34,6 +35,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Employee 1',
             'email' => 'employee1@employee.com',
             'email_verified_at' => now(),
+            'gender' => fake()->randomElement(GenderEnum::cases())->value,
             'city' => 'aberdeen',
             'phone' => fake()->phoneNumber(),
             'address' => 'Fake Address',
@@ -49,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Employee 2',
             'email' => 'employee2@employee.com',
             'email_verified_at' => now(),
+            'gender' => fake()->randomElement(GenderEnum::cases())->value,
             'city' => 'aberdeen',
             'phone' => fake()->phoneNumber(),
             'address' => 'Fake Address',
@@ -65,6 +68,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Sese',
             'email' => 'sese@hotmail.com',
             'email_verified_at' => now(),
+            'gender' => fake()->randomElement(GenderEnum::cases())->value,
             'city' => 'aberdeen',
             'phone' => fake()->phoneNumber(),
             'address' => 'Fake Address',
