@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use HasRoles;
 
 class LoginForm extends Component
 {
@@ -19,7 +20,15 @@ class LoginForm extends Component
 
         if (Auth::attempt($credentials)) {
             // Authentication was successful
-            return redirect()->intended('/dashboard');
+            if (Auth::user()->hasRole('admin')) {
+                return redirect()->intended('/admin/dashboard');
+            }
+            if (Auth::user()->hasRole('employee')) {
+                return redirect()->intended('/employee/dashboard');
+            }
+            if (Auth::user()->hasRole('customer')) {
+                return redirect()->intended('/');
+            }
         } else {
             // Authentication failed
             $this->addError('email', 'Invalid email or password.');
