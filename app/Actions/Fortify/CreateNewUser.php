@@ -24,6 +24,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'city' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'postcode' => ['required', 'string', Rule::postcode()],
             'phone' =>  ['required', 'numeric', 'min:10'],
@@ -34,6 +35,7 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'gender' => $input['gender'],
             'city' => $input['city'],
             'address' => $input['address'],
             'postcode' => $input['postcode'],

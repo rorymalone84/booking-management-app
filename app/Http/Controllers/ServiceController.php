@@ -18,8 +18,6 @@ class ServiceController extends Controller
         $categories = Category::all();
         $services = Service::all();
         return view('customer.services.index', [
-            'female_services' => Service::all()->where('gender', '=', 'female'),
-            'male_services' => Service::all()->where('gender', '=', 'male'),
             'categories' => $categories
         ]);
     }

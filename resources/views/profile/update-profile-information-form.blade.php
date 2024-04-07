@@ -54,7 +54,7 @@
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" required
+            <x-input id="name" type="text" class="mt-1 block w-full" wire:model.live="state.name" required
                 autocomplete="name" />
             <x-input-error for="name" class="mt-2" />
         </div>
@@ -62,7 +62,7 @@
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />
-            <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required
+            <x-input id="email" type="email" class="mt-1 block w-full" wire:model.live="state.email" required
                 autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
@@ -86,18 +86,28 @@
             @endif
         </div>
 
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="city" value="{{ __('Gender') }}" />
+            <div class="col-sm-6">
+                <select class="form-control" wire:model.live="state.gender">
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+            <x-input-error for="city" class="mt-2" />
+        </div>
+
         <!-- city -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="city" value="{{ __('City') }}" />
-            <x-input id="city" type="text" class="mt-1 block w-full" wire:model="state.city" required
-                autocomplete="city" />
+            <x-input id="city" type="text" class="mt-1 block w-full" wire:model.live="state.city" required />
             <x-input-error for="city" class="mt-2" />
         </div>
 
         <!-- Address -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="address" value="{{ __('Address') }}" />
-            <x-input id="address" type="text" class="mt-1 block w-full" wire:model="state.address" required
+            <x-input id="address" type="text" class="mt-1 block w-full" wire:model.live="state.address" required
                 autocomplete="address" />
             <x-input-error for="address" class="mt-2" />
         </div>
@@ -105,7 +115,7 @@
         <!--postcode-->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="postcode" value="{{ __('Postcode') }}" />
-            <x-input id="postcode" type="text" class="mt-1 block w-full" wire:model="state.postcode" required
+            <x-input id="postcode" type="text" class="mt-1 block w-full" wire:model.live="state.postcode" required
                 autocomplete="postcode" />
             <x-input-error for="postcode" class="mt-2" />
         </div>
@@ -113,7 +123,7 @@
         <!--phone number-->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="phone" value="{{ __('Phone') }}" />
-            <x-input id="phone" type="text" class="mt-1 block w-full" wire:model="state.phone" required
+            <x-input id="phone" type="text" class="mt-1 block w-full" wire:model.live="state.phone" required
                 autocomplete="phone" />
             <x-input-error for="phone" class="mt-2" />
         </div>

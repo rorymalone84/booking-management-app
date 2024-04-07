@@ -20,6 +20,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'gender' => ['required'],
             'city' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'postcode' => ['required', 'string', Rule::postcode()],
@@ -40,6 +41,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'city' => $input['city'],
+                'gender' => $input['gender'],
+                'city' => $input['city'],
+                'address' => $input['address'],
+                'postcode' => $input['postcode'],
+                'phone' => $input['phone']
             ])->save();
         }
     }
@@ -54,6 +61,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'name' => $input['name'],
             'email' => $input['email'],
+            'city' => $input['city'],
+            'gender' => $input['gender'],
+            'city' => $input['city'],
+            'address' => $input['address'],
+            'postcode' => $input['postcode'],
+            'phone' => $input['phone'],
             'email_verified_at' => null,
         ])->save();
 

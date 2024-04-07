@@ -21,6 +21,17 @@
                     required autocomplete="username" />
             </div>
 
+            <!-- add gender drop down -->
+            <div class="mt-4">
+                <x-label for="gender" value="{{ __('Gender') }}" />
+                <div class="col-sm-6">
+                    <select class="form-control" name="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="mt-4">
                 <x-label for="city" value="{{ __('City') }}" />
                 <x-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')"
