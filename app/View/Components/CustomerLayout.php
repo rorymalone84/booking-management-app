@@ -2,8 +2,9 @@
 
 namespace App\View\Components;
 
-use Illuminate\View\Component;
+use Mary\Traits\Toast;
 use Illuminate\View\View;
+use Illuminate\View\Component;
 
 class CustomerLayout extends Component
 {

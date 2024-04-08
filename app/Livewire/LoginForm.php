@@ -2,9 +2,10 @@
 
 namespace App\Livewire;
 
+
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use HasRoles;
+use Spatie\Permission\Traits\HasRoles;
 
 class LoginForm extends Component
 {
@@ -21,12 +22,15 @@ class LoginForm extends Component
         if (Auth::attempt($credentials)) {
             // Authentication was successful
             if (Auth::user()->hasRole('admin')) {
+                session()->flash('loggedIn', 'You have sucesfully logged in');
                 return redirect()->intended('/admin/dashboard');
             }
             if (Auth::user()->hasRole('employee')) {
+                session()->flash('loggedIn', 'You have sucesfully logged in');
                 return redirect()->intended('/employee/dashboard');
             }
             if (Auth::user()->hasRole('customer')) {
+                session()->flash('loggedIn', 'You have sucesfully logged in');
                 return redirect()->intended('/');
             }
         } else {

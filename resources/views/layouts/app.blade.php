@@ -79,7 +79,17 @@
     </x-mary-main>
 
     {{--  TOAST area --}}
-    <x-mary-toast />
+    <div>
+        @if (session()->has('loggedIn'))
+            <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 3000)">
+                <div class="toast toast-bottom toast-end">
+                    <div class="alert alert-success text-white transition-opacity ease-in duration-700 opacity-100 ">
+                        <span>You have logged in successfully.</span>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </div>
 
     @stack('modals')
 

@@ -63,11 +63,14 @@
             {{ $slot }}
         </x-slot:content>
 
+        {{-- TOAST --}}
+
+
         {{-- Footer area --}}
         <x-slot:footer>
             <hr />
             <div class="p-6">
-                Footer
+                <x-mary-toast />
             </div>
         </x-slot:footer>
     </x-mary-main>
