@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\EmployeeDashboardController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/services/{id}', [ServiceController::class, 'display_service'])->nam
 Route::group(['middleware' => ['role:admin']], function () {
     // Routes accessible only by users with the 'admin' role
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/users', Users::class);
 });
 
 Route::group(['middleware' => ['role:employee']], function () {

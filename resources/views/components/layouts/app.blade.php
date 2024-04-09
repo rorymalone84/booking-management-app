@@ -65,7 +65,7 @@
                 @endif
 
                 <x-mary-menu-item title="Home" icon="o-home" link="/admin/dashboard" />
-                <x-mary-menu-item title="Users" icon="0-user" link="/admin/users" />
+                <x-mary-menu-item title="Users" icon="o-user" link="/admin/users" />
             </x-mary-menu>
         </x-slot:sidebar>
 
