@@ -23,7 +23,7 @@ class LoginForm extends Component
             // Authentication was successful
             if (Auth::user()->hasRole('admin')) {
                 session()->flash('loggedIn', 'You have sucesfully logged in');
-                return redirect()->intended('/admin/dashboard');
+                return redirect('/admin/dashboard');
             }
             if (Auth::user()->hasRole('employee')) {
                 session()->flash('loggedIn', 'You have sucesfully logged in');

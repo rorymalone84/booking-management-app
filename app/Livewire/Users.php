@@ -2,18 +2,31 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
+use WithPagination;
 
 class Users extends Component
 {
-    public $users, $name, $gender, $city, $phone, $email, $password;
+    public $name, $gender, $city, $phone, $email, $address, $postcode;
     public $isOpen = false;
+
+    public $search = '';
 
     public function render()
     {
-        $this->users = User::all();
-        return view('livewire.users.index');
+
+        $headers = [
+            ['key' => 'id', 'label' => '#'],
+            ['key' => 'name', 'label' => 'Name'],
+            ['key' => 'email', 'label' => 'Email'],
+            ['key' => 'phone', 'label' => 'Phone'],
+        ];
+
+        return view('livewire.users.index', [
+            'users' => User::where('name', 'like', '%' . $this->search . '%')->paginate(10),
+            'headers' => $headers
+        ]);
     }
 
     public function openModal()
@@ -34,6 +47,5 @@ class Users extends Component
         $this->city = '';
         $this->phone = '';
         $this->email = '';
-        $this->password = '';
     }
 }
