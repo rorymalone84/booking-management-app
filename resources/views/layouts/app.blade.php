@@ -66,6 +66,8 @@
 
                 <x-mary-menu-item title="Home" icon="o-home" link="/admin/dashboard" />
                 <x-mary-menu-item title="Users" icon="o-user" link="/admin/users" />
+                <x-mary-menu-item title="Categories" icon="o-clipboard-document-list" link="/admin/categories" />
+                <x-mary-menu-item title="Services" icon="o-scissors" link="/admin/services" />
             </x-mary-menu>
         </x-slot:sidebar>
 
